@@ -11,3 +11,10 @@ This is a slimmed down version of the [SvelteKit BYOB](https://github.com/Rykuno
 - Drizzle
 - Hono
 - Lucia
+
+## TODO
+
+- [] Data model
+- [] Lucia
+- [] Login page
+- [] Shitty todo app?
