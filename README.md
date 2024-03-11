@@ -14,7 +14,7 @@ This is a slimmed down version of the [SvelteKit BYOB](https://github.com/Rykuno
 
 ## TODO
 
-- [] Data model
-- [] Lucia
-- [] Login page
+- [x] Data model
+- [x] Lucia
+- [x] Login page
 - [] Shitty todo app?

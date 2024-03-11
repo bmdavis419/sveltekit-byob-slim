@@ -4,7 +4,7 @@ import { Hono } from 'hono';
 
 const users = new Hono()
 	.get('/', async (c) => {
-		const users = await db.query.users.findMany();
+		const users = await db.query.userTable.findMany();
 
 		return c.json({ users });
 	})

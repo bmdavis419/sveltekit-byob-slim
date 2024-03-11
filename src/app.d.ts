@@ -7,6 +7,8 @@ declare global {
 		// interface Error {}
 		interface Locals {
 			api: ClientType['api'];
+			user: import('lucia').User | null;
+			session: import('lucia').Session | null;
 		}
 		// interface PageData {}
 		// interface PageState {}
