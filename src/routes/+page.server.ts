@@ -1,8 +1,7 @@
 import { parseApiResponse } from '$lib/utils/index.js';
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 
 export const load = async ({ locals }) => {
-	console.log(locals);
 	const testingData = await parseApiResponse(locals.api.$get());
 
 	if (testingData.error !== null) {
@@ -15,7 +14,9 @@ export const load = async ({ locals }) => {
 		error(testingData.status, moreTestingData.error);
 	}
 
-	const userInfo = locals.user;
+	if (locals.user && locals.session) {
+		redirect(307, '/todos');
+	}
 
-	return { testingData, moreTestingData, userInfo };
+	return { testingData, moreTestingData };
 };
