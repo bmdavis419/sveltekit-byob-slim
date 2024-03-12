@@ -1,19 +1,18 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button/button.svelte';
 	import '../app.pcss';
 
 	let isOpen = $state(false);
 </script>
 
-<main class="w-full min-h-screen flex flex-col justify-between">
+<main class="flex min-h-screen w-full flex-col justify-between">
 	<!-- navbar -->
-	<nav class="bg-gray- text-white p-4">
-		<div class="container mx-auto flex justify-between items-center">
+	<nav class="bg-gray- p-4 text-white">
+		<div class="container mx-auto flex items-center justify-between">
 			<a href="/" class="text-xl font-bold">Big Stair</a>
 			<button class="md:hidden" on:click={() => (isOpen = !isOpen)}>
 				<!-- Hamburger Icon -->
 				<svg
-					class="w-6 h-6"
+					class="h-6 w-6"
 					fill="none"
 					stroke="currentColor"
 					viewBox="0 0 24 24"
@@ -26,10 +25,7 @@
 					></path></svg
 				>
 			</button>
-			<div class={`md:flex ${isOpen ? 'block' : 'hidden'}`}>
-				<Button href="/todos" variant="link">Todos Example</Button>
-				<Button href="/examples" variant="link">API Examples</Button>
-			</div>
+			<div class={`md:flex ${isOpen ? 'block' : 'hidden'} gap-4`}></div>
 		</div>
 	</nav>
 
@@ -37,21 +33,21 @@
 	<slot />
 
 	<!-- footer -->
-	<footer class=" text-white py-8">
+	<footer class=" py-8 text-white">
 		<div class="container mx-auto px-4">
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 				<div>
-					<h3 class="text-xl font-bold mb-4">About Us</h3>
+					<h3 class="mb-4 text-xl font-bold">About Us</h3>
 					<p class="text-gray-400">This is a very useful app.</p>
 				</div>
 				<div>
-					<h3 class="text-xl font-bold mb-4">Quick Links</h3>
+					<h3 class="mb-4 text-xl font-bold">Quick Links</h3>
 					<ul class="space-y-2">
 						<li><a href="/" class="text-gray-400 hover:text-white">Home</a></li>
 					</ul>
 				</div>
 				<div>
-					<h3 class="text-xl font-bold mb-4">Contact Us</h3>
+					<h3 class="mb-4 text-xl font-bold">Contact Us</h3>
 					<p class="text-gray-400">Email: shed@bigstair.ai</p>
 				</div>
 			</div>

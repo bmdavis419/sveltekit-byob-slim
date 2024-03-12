@@ -6,6 +6,8 @@ import { github, lucia } from '$lib/auth';
 import { db } from '$lib/db';
 import { userTable } from '$lib/db/schema';
 
+// NOTE: this could/probably should be moved over to the API
+
 export async function GET(event: RequestEvent): Promise<Response> {
 	const code = event.url.searchParams.get('code');
 	const state = event.url.searchParams.get('state');

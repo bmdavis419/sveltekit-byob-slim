@@ -1,11 +1,14 @@
 import { lucia } from '$lib/auth';
+import { getUserInfo } from '$lib/utils/index.js';
 import { fail, redirect } from '@sveltejs/kit';
 
 export const GET = async (event) => {
-	if (!event.locals.session) {
+	const { session } = await getUserInfo(event.locals);
+
+	if (!session) {
 		fail(401);
 	}
-	const session = event.locals.session;
+
 	if (session) {
 		lucia.invalidateSession(session.id);
 		const sessionCookie = lucia.createBlankSessionCookie();
@@ -14,5 +17,5 @@ export const GET = async (event) => {
 			...sessionCookie.attributes
 		});
 	}
-	return redirect(302, '/auth/login');
+	return redirect(302, '/');
 };

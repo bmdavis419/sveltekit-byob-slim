@@ -1,6 +1,7 @@
 import { Hono } from 'hono';
 import { hc } from 'hono/client';
 import users from './users';
+import todos from './todos';
 import { getCookie, setCookie } from 'hono/cookie';
 import { lucia } from '$lib/auth';
 import { createMiddleware } from 'hono/factory';
@@ -71,7 +72,10 @@ app.use(authMiddleware);
 /*                                   Routes                                   */
 /* -------------------------------------------------------------------------- */
 
-const routes = app.route('/users', users).get('/', (c) => c.json({ message: 'server is healthy' }));
+const routes = app
+	.route('/users', users)
+	.route('/todos', todos)
+	.get('/', (c) => c.json({ message: 'server is healthy' }));
 
 /* -------------------------------------------------------------------------- */
 /*                                   Exports                                  */

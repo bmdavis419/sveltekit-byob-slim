@@ -34,10 +34,8 @@ export const sessionRelations = relations(sessionTable, ({ one }) => ({
 export const todoTable = sqliteTable('todo', {
 	id: text('id', { length: 100 }).primaryKey(),
 	name: text('name').notNull(),
-	desc: text('desc').notNull(),
 	createdAt: integer('created_at', { mode: 'timestamp' }).notNull(),
 	completed: integer('completed', { mode: 'boolean' }).notNull(),
-	dueAt: integer('due_at', { mode: 'timestamp' }).notNull(),
 	userId: text('user_id', { length: 100 })
 		.references(() => userTable.id)
 		.notNull()

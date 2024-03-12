@@ -1,16 +1,18 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button/button.svelte';
-	import * as Card from '$lib/components/ui/card';
 </script>
 
-<div class="container flex justify-center items-center">
-	<Card.Root class="w-full md:w-[600px]">
-		<Card.Header>
-			<h2 class="font-bold text-xl">Basic Todo App</h2>
-		</Card.Header>
-		<Card.Content>
+<div class="container flex items-center justify-center">
+	<div class="w-full md:w-[600px]">
+		<header>
+			<h2 class="text-xl font-bold">Basic Todo App</h2>
+		</header>
+		<div class="flex flex-col gap-4">
 			<p>Please login to use this new an exciting feature</p>
-			<Button href="/auth/login">Sign in with Github</Button>
-		</Card.Content>
-	</Card.Root>
+			<a
+				href="/auth/login/github"
+				class="rounded-lg bg-white p-4 font-mono font-bold text-black shadow-md"
+				>Sign in with Github</a
+			>
+		</div>
+	</div>
 </div>
